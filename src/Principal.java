@@ -29,36 +29,36 @@ public class Principal {
     public static void main(String[] args) {
         List<Funcionario> funcionarios = new ArrayList<>(criarFuncionarios());
 
-        System.out.println("3.1 - Funcionarios inseridos:");
+        System.out.println("Colaboradores da empresa:");
         imprimirFuncionarios(funcionarios);
 
-        // Remove o João da lista
+
         funcionarios.removeIf(funcionario -> funcionario.getNome().equalsIgnoreCase("João"));
-        System.out.println("\n3.2 - Lista apos remover João:");
+        System.out.println(" Lista depois de remover João:");
         imprimirFuncionarios(funcionarios);
 
         aplicarAumento(funcionarios);
-        System.out.println("\n3.4 - Lista apos aumento de 10%:");
+        System.out.println("Lista depois do aumento de 10%:");
         imprimirFuncionarios(funcionarios);
 
         Map<String, List<Funcionario>> funcionariosPorFuncao = agruparPorFuncao(funcionarios);
-        System.out.println("\n3.5 e 3.6 - Funcionarios agrupados por funcao:");
+        System.out.println("Colaboradores agrupados por funcao:");
         imprimirAgrupadosPorFuncao(funcionariosPorFuncao);
 
-        System.out.println("\n3.8 - Funcionarios que fazem aniversario nos meses 10 e 12:");
+        System.out.println("Colaboradores que fazem aniversario nos meses 10 e 12:");
         imprimirAniversariantes(funcionarios, 10, 12);
 
-        System.out.println("\n3.9 - Funcionario com maior idade:");
+        System.out.println("Colaboradores mais velhos:");
         imprimirFuncionarioMaisVelho(funcionarios);
 
-        System.out.println("\n3.10 - Funcionarios em ordem alfabetica:");
+        System.out.println("Colaboradores em ordem alfabetica:");
         imprimirFuncionariosOrdenados(funcionarios);
 
-        System.out.println("\n3.11 - Total dos salarios:");
+        System.out.println("Total dos salarios:");
         BigDecimal totalSalarios = somarSalarios(funcionarios);
         System.out.println("Total: R$ " + formatarValor(totalSalarios));
 
-        System.out.println("\n3.12 - Quantidade de salarios minimos por funcionario:");
+        System.out.println("Quantidade de salarios minimos por funcionario:");
         imprimirSalariosMinimos(funcionarios);
     }
 
@@ -81,7 +81,7 @@ public class Principal {
 
     private static void aplicarAumento(List<Funcionario> funcionarios) {
         for (Funcionario funcionario : funcionarios) {
-            // O aumento foi aplicado multiplicando R$1.10
+            // O aumento foi aplicado multiplicando por x 1.10
             BigDecimal salarioAtualizado = funcionario.getSalario()
                     .multiply(PERCENTUAL_AUMENTO)
                     .setScale(2, RoundingMode.HALF_UP);
